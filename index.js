@@ -2,23 +2,29 @@
 call the callback function
 it doesn't matter what this function returns, so long as it calls the callback function*/
 
-// const callback  = 'sherlyne'
+ const callback = name => console.log("Sherlyne")
 
-function receivesAFunction(callback){  // argument call back
-  callback(); // call the callback function
+function receivesAFunction(callback){ // passing a name as 
+  return callback(); // call the callback function
   }
-receivesAFunction();
+receivesAFunction(callback); // sherlyne 
 
 // returnsANamedFunction();
-function returnsANamedFunction(){
-  return function NamedFunction(){}; 
+function returnsANamedFunction(callback){
+  return function Named(){
+    const name = receivesAFunction(callback) 
+    console.log(`${name} is my first name and  Ochieng is my second name`)}; 
 };
 
-returnsANamedFunction(); 
+const fina = returnsANamedFunction("sherlyne"); 
+
+console.log(fina());
 
 // returnsAnAnonymousFunction
 
 function returnsAnAnonymousFunction(){
-  return function(){};
+  return function(){console.log("return an anonymous function")};
 }
-  returnsAnAnonymousFunction();
+  const anony = (returnsAnAnonymousFunction());
+
+  anony(); 
